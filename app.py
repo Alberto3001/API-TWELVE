@@ -111,7 +111,7 @@ def status():
     return jsonify({"status": "OK"}), 200
   
 
-if _name_ == "_main_":
+if _name_ == "__main__":
     app.run(debug=True)
 
     #Hola

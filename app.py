@@ -5,7 +5,7 @@ import logging
 # Configuración del logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-app = Flask(__name__)
+app = Flask(_name_)
 
 # Lista de API keys actualizadas
 api_keys = [
@@ -104,6 +104,12 @@ def get_current_price():
         return jsonify({"symbol": symbol, "current_price": data["price"]})
     else:
         return jsonify({"error": "No se pudo obtener el precio actual"})
+    
+@app.route('/status', methods=['GET'])
+def status():
+    """Endpoint para verificar si el servicio está funcionando correctamente."""
+    return jsonify({"status": "OK"}), 200
+  
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     app.run(debug=True)
